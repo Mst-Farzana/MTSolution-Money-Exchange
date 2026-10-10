@@ -3,7 +3,7 @@ import Image from "next/image"
 export default function BrandMark({ size = 40 }: { size?: number }) {
   return (
     <Image
-      src="/favicon.png"
+      src="/logo.svg"
       alt="MT Solution"
       width={size}
       height={size}

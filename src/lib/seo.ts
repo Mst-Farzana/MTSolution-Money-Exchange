@@ -18,9 +18,9 @@ export const BUSINESS_SCHEMA = {
   description:
     "USD and USDT exchange services in Chittagong, Bangladesh, with 24/7 customer support.",
 
-  image: `${SITE_URL.origin}/favicon.png`,
+  image: `${SITE_URL.origin}/logo.svg`,
 
-  logo: `${SITE_URL.origin}/favicon.png`,
+  logo: `${SITE_URL.origin}/logo.svg`,
 
   telephone: DEF_SETTINGS.phone,
 
