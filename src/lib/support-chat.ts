@@ -2,6 +2,7 @@ import "server-only"
 
 import { createHmac } from "node:crypto"
 
+import { DEMO_CONTACT } from "@/lib/app-data"
 import { getDbPool } from "@/lib/db/pool"
 
 interface ChatContent {
@@ -53,12 +54,10 @@ export async function generateSupportReply(
     ),
 
     pool.query<{
-      phone: string
-      email: string
       address: string
       hours: string
     }>(
-      "select phone, email, address, hours from public.site_settings where id = 1",
+      "select address, hours from public.site_settings where id = 1",
     ),
   ])
 
@@ -75,7 +74,7 @@ export async function generateSupportReply(
       ({ title, description }) => `- ${title}: ${description}`,
     ),
 
-    `Contact: phone/WhatsApp ${settings?.phone ?? "not available"}; email ${settings?.email ?? "not available"}.`,
+    `Contact: phone/WhatsApp ${DEMO_CONTACT.phone}; email ${DEMO_CONTACT.email}.`,
 
     `Location: ${settings?.address ?? "not available"}.`,
 

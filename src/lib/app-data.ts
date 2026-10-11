@@ -50,9 +50,14 @@ export const DEF_SERVICES: Service[] = [
   },
 ]
 
+export const DEMO_CONTACT = {
+  phone: "+1 202-555-0147",
+  email: "hello@example.com",
+}
+
 export const DEF_SETTINGS: SiteSettings = {
-  phone: "+8801975836717",
-  email: "mt.solution2425@gmail.com",
+  phone: DEMO_CONTACT.phone,
+  email: DEMO_CONTACT.email,
   address: "Chittagong, Bangladesh",
   hours: "Always Open (24/7)",
   language: "bn",

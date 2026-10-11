@@ -35,8 +35,8 @@ create table if not exists public.services (
 
 create table if not exists public.site_settings (
   id integer primary key default 1 check (id = 1),
-  phone text not null default '+8801975836717',
-  email text not null default 'mt.solution2425@gmail.com',
+  phone text not null default '+1 202-555-0147',
+  email text not null default 'hello@example.com',
   address text not null default 'Chittagong, Bangladesh',
   hours text not null default 'Always Open (24/7)',
   language text not null default 'bn' check (language in ('bn', 'en')),

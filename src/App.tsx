@@ -21,6 +21,7 @@ import {
   DEF_RATES,
   DEF_SERVICES,
   DEF_SETTINGS,
+  DEMO_CONTACT,
   TR,
   type TKey,
 } from "@/lib/app-data"
@@ -86,6 +87,10 @@ export default function App() {
   const [siteDataLoaded, setSiteDataLoaded] = useState(false)
 
   const isDark = theme === "dark"
+  const publicSettings: SiteSettings = {
+    ...settings,
+    ...DEMO_CONTACT,
+  }
 
   const t = (key: string): string =>
     (TR[lang] as Record<string, string>)[key] ?? key
@@ -333,16 +338,21 @@ export default function App() {
         onAdminClick={handleAdminClick}
         onDashboardClick={() => setShowDashboard(true)}
       />
-      <Hero t={t} isDark={isDark} settings={settings} rates={rates} />
+      <Hero t={t} isDark={isDark} settings={publicSettings} rates={rates} />
       <Features t={t} isDark={isDark} />
       <RatesSection t={t} isDark={isDark} rates={rates} />
       <PaymentsSection t={t} isDark={isDark} payments={payments} />
       <ServicesSection t={t} isDark={isDark} services={services} />
       <AboutSection t={t} isDark={isDark} />
-      <ContactSection t={t} isDark={isDark} rates={rates} settings={settings} />
-      <Footer t={t} isDark={isDark} settings={settings} />
+      <ContactSection
+        t={t}
+        isDark={isDark}
+        rates={rates}
+        settings={publicSettings}
+      />
+      <Footer t={t} isDark={isDark} settings={publicSettings} />
       <SupportChatWidget isDark={isDark} language={lang} />
-      <WhatsAppFloat phone={settings.phone} />
+      <WhatsAppFloat phone={publicSettings.phone} />
 
       {showLogin && (
         <AdminLoginModal
